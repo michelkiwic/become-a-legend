@@ -86,6 +86,7 @@ export default function Home() {
   const [entryStage, setEntryStage] = useState<0 | 1 | 2>(0);
   const hasEntered = entryStage === 2;
   const [activeId, setActiveId] = useState<string | null>(null);
+  const [menuOpen, setMenuOpen] = useState(false);
   const touchStartX = useRef<number | null>(null);
   const activeCategory = categories.find((category) => category.id === activeId);
   const activeIndex = categories.findIndex((category) => category.id === activeId);
@@ -175,17 +176,56 @@ export default function Home() {
     >
       <header className="masthead">
         <a className="wordmark" href="#model" aria-label="Yoshi und Moshi – zum Ausstellungsmodell">
-          YOSHI<span>+</span>MOSHI
+          <span className="wordmark-main">YOSHI<span>+</span>MOSHI</span>
+          <span className="wordmark-subtitle">Become a Legend</span>
         </a>
         <div className="exhibition-title">
-          <span>Become a Legend</span>
-          <span>Exhibition model · Six categories</span>
+          <span>Exhibition Plan</span>
+          <span>Move or tab to explore</span>
         </div>
-        <p className="instruction">
-          <span className="instruction-dot" aria-hidden="true" />
-          Move or tap to explore
-        </p>
+        <button
+          className={`menu-toggle${menuOpen ? " is-open" : ""}`}
+          type="button"
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={menuOpen}
+          aria-controls="site-menu"
+          onClick={() => setMenuOpen((open) => !open)}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
       </header>
+
+      <nav className={`site-menu${menuOpen ? " is-open" : ""}`} id="site-menu" aria-label="Exhibition menu">
+        <div className="site-menu-heading">
+          <span>Become a Legend</span>
+          <strong>Exhibition Plan</strong>
+        </div>
+        {categories.map((category) => (
+          <a
+            href="#model"
+            key={category.id}
+            onClick={() => {
+              setActiveId(category.id);
+              setMenuOpen(false);
+            }}
+          >
+            <span>{category.id}</span>
+            <strong>{category.name}</strong>
+          </a>
+        ))}
+        <button
+          type="button"
+          onClick={() => {
+            setMenuOpen(false);
+            setActiveId(null);
+            setEntryStage(0);
+          }}
+        >
+          Replay intro
+        </button>
+      </nav>
 
       <section className="model-section" id="model" aria-label="Interactive exhibition model">
         <div className="exhibition-layout">

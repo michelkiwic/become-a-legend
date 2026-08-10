@@ -465,6 +465,7 @@ a:focus-visible {
 }
 
 .site-shell {
+  position: relative;
   min-height: 100svh;
   padding: 0 18px;
   opacity: 0;
@@ -476,6 +477,8 @@ a:focus-visible {
 }
 
 .masthead {
+  position: relative;
+  z-index: 31;
   min-height: 86px;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
@@ -485,19 +488,35 @@ a:focus-visible {
 }
 
 .wordmark {
+  display: flex;
   width: max-content;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
   color: var(--paper);
-  font-size: clamp(1.2rem, 2.1vw, 2.3rem);
-  font-weight: 900;
-  letter-spacing: -0.08em;
-  line-height: 1;
   text-decoration: none;
 }
 
-.wordmark span {
+.wordmark-main {
+  font-size: clamp(1.2rem, 2.1vw, 2.3rem);
+  font-weight: 900;
+  letter-spacing: -0.08em;
+  line-height: 0.88;
+}
+
+.wordmark-main > span {
   display: inline-block;
   margin: 0 0.12em;
   font-weight: 400;
+}
+
+.wordmark-subtitle {
+  color: rgba(242, 240, 233, 0.56);
+  font-size: clamp(0.48rem, 0.58vw, 0.62rem);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  line-height: 1;
+  text-transform: uppercase;
 }
 
 .exhibition-title {
@@ -518,6 +537,132 @@ a:focus-visible {
 
 .exhibition-title span:last-child {
   color: rgba(242, 240, 233, 0.58);
+}
+
+.menu-toggle {
+  position: relative;
+  justify-self: end;
+  display: grid;
+  width: 46px;
+  height: 42px;
+  padding: 10px 8px;
+  border: 1px solid rgba(242, 240, 233, 0.28);
+  background: transparent;
+  cursor: pointer;
+}
+
+.menu-toggle > span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  align-self: center;
+  background: var(--paper);
+  transform-origin: center;
+  transition: transform 220ms ease, opacity 180ms ease;
+}
+
+.menu-toggle.is-open > span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle.is-open > span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.is-open > span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.site-menu {
+  position: absolute;
+  z-index: 30;
+  top: 86px;
+  right: 18px;
+  display: grid;
+  width: min(360px, calc(100% - 36px));
+  border: 1px solid rgba(242, 240, 233, 0.32);
+  background: #0a0a0a;
+  box-shadow: 12px 14px 0 rgba(0, 0, 0, 0.38);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-12px) scale(0.98);
+  transform-origin: top right;
+  transition: opacity 180ms ease, transform 260ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.site-menu.is-open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+.site-menu-heading {
+  display: flex;
+  min-height: 68px;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--line);
+  text-transform: uppercase;
+}
+
+.site-menu-heading span {
+  color: rgba(242, 240, 233, 0.5);
+  font-size: 0.54rem;
+  letter-spacing: 0.15em;
+}
+
+.site-menu-heading strong {
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+}
+
+.site-menu a,
+.site-menu > button {
+  display: grid;
+  min-height: 50px;
+  padding: 0 16px;
+  border: 0;
+  border-bottom: 1px solid rgba(242, 240, 233, 0.16);
+  grid-template-columns: 42px 1fr;
+  align-items: center;
+  background: transparent;
+  color: rgba(242, 240, 233, 0.7);
+  text-align: left;
+  text-decoration: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 160ms ease, color 160ms ease, padding-left 220ms ease;
+}
+
+.site-menu a:hover,
+.site-menu a:focus-visible,
+.site-menu > button:hover,
+.site-menu > button:focus-visible {
+  padding-left: 22px;
+  background: var(--rebel-pink);
+  color: #fff;
+}
+
+.site-menu a span {
+  font-size: 0.55rem;
+  letter-spacing: 0.12em;
+}
+
+.site-menu a strong {
+  font-size: 0.72rem;
+  letter-spacing: 0.07em;
+}
+
+.site-menu > button {
+  min-height: 56px;
+  border-bottom: 0;
+  grid-template-columns: 1fr;
+  color: var(--paper);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
 }
 
 .instruction {
@@ -1202,13 +1347,18 @@ a:focus-visible {
   }
 
   .exhibition-title {
-    align-items: flex-end;
-    text-align: right;
+    display: none;
   }
 
-  .exhibition-title span:last-child,
-  .instruction {
-    display: none;
+  .menu-toggle {
+    width: 42px;
+    height: 38px;
+  }
+
+  .site-menu {
+    top: 72px;
+    right: 10px;
+    width: calc(100% - 20px);
   }
 
   .model-section {
