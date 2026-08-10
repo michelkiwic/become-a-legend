@@ -1,0 +1,146 @@
+[WARN] Moving @next/eslint-plugin-next that was installed by a different package manager to "node_modules/.ignored"
+[WARN] Moving @cloudflare/vite-plugin that was installed by a different package manager to "node_modules/.ignored"
+[WARN] Moving @eslint/js that was installed by a different package manager to "node_modules/.ignored"
+[WARN] Moving @tailwindcss/postcss that was installed by a different package manager to "node_modules/.ignored"
+[WARN] Moving @types/node that was installed by a different package manager to "node_modules/.ignored"
+[WARN] Moving @types/react that was installed by a different package manager to "node_modules/.ignored"
+[WARN] Moving @vitejs/plugin-react that was installed by a different package manager to "node_modules/.ignored"
+[WARN] Moving @types/react-dom that was installed by a different package manager to "node_modules/.ignored"
+[WARN] Moving @vitejs/plugin-rsc that was installed by a different package manager to "node_modules/.ignored"
+[WARN] Moving drizzle-kit that was installed by a different package manager to "node_modules/.ignored"
+[WARN] Moving eslint that was installed by a different package manager to "node_modules/.ignored"
+[WARN] Moving eslint-plugin-jsx-a11y that was installed by a different package manager to "node_modules/.ignored"
+[WARN] Moving eslint-plugin-react that was installed by a different package manager to "node_modules/.ignored"
+[WARN] Moving eslint-plugin-react-hooks that was installed by a different package manager to "node_modules/.ignored"
+[WARN] Moving globals that was installed by a different package manager to "node_modules/.ignored"
+[WARN] Moving tailwindcss that was installed by a different package manager to "node_modules/.ignored"
+[WARN] Moving react-server-dom-webpack that was installed by a different package manager to "node_modules/.ignored"
+[WARN] Moving typescript that was installed by a different package manager to "node_modules/.ignored"
+[WARN] Moving typescript-eslint that was installed by a different package manager to "node_modules/.ignored"
+[WARN] Moving vite that was installed by a different package manager to "node_modules/.ignored"
+[WARN] Moving vinext that was installed by a different package manager to "node_modules/.ignored"
+[WARN] Moving wrangler that was installed by a different package manager to "node_modules/.ignored"
+[WARN] Moving react-dom that was installed by a different package manager to "node_modules/.ignored"
+[WARN] Moving drizzle-orm that was installed by a different package manager to "node_modules/.ignored"
+[WARN] Moving react that was installed by a different package manager to "node_modules/.ignored"
+
+   ╭──────────────────────────────────────────╮
+   │                                          │
+   │   Update available! 11.16.0 → 11.21.0.   │
+   │   Changelog: https://pnpm.io/v/11.21.0   │
+   │     To update, run: pnpm add -g pnpm     │
+   │                                          │
+   ╰──────────────────────────────────────────╯
+
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Progress: resolved 15, reused 0, downloaded 5, added 0
+Progress: resolved 16, reused 0, downloaded 7, added 0
+Progress: resolved 19, reused 0, downloaded 9, added 0
+Progress: resolved 20, reused 0, downloaded 12, added 0
+Progress: resolved 22, reused 0, downloaded 15, added 0
+Progress: resolved 22, reused 0, downloaded 18, added 0
+Progress: resolved 23, reused 0, downloaded 21, added 0
+Progress: resolved 24, reused 0, downloaded 22, added 0
+Progress: resolved 24, reused 0, downloaded 23, added 0
+Progress: resolved 25, reused 0, downloaded 23, added 0
+Progress: resolved 26, reused 0, downloaded 23, added 0
+Progress: resolved 59, reused 0, downloaded 27, added 0
+Progress: resolved 96, reused 0, downloaded 48, added 0
+Progress: resolved 110, reused 0, downloaded 68, added 0
+Progress: resolved 127, reused 0, downloaded 79, added 0
+Progress: resolved 130, reused 0, downloaded 88, added 0
+Progress: resolved 132, reused 0, downloaded 98, added 0
+Progress: resolved 133, reused 0, downloaded 105, added 0
+Progress: resolved 135, reused 0, downloaded 117, added 0
+Progress: resolved 135, reused 0, downloaded 132, added 0
+Progress: resolved 135, reused 0, downloaded 133, added 0
+Progress: resolved 136, reused 0, downloaded 135, added 0
+[WARN] Request took 10843ms: https://registry.npmjs.org/@typescript-eslint%2Feslint-plugin
+[WARN] Request took 11222ms: https://registry.npmjs.org/@typescript-eslint%2Ftypescript-estree
+Progress: resolved 141, reused 0, downloaded 135, added 0
+Progress: resolved 169, reused 0, downloaded 136, added 0
+Progress: resolved 206, reused 0, downloaded 149, added 0
+Progress: resolved 208, reused 0, downloaded 163, added 0
+Progress: resolved 243, reused 0, downloaded 174, added 0
+Progress: resolved 271, reused 0, downloaded 183, added 0
+Progress: resolved 301, reused 0, downloaded 201, added 0
+Progress: resolved 317, reused 0, downloaded 213, added 0
+Progress: resolved 326, reused 0, downloaded 222, added 0
+Progress: resolved 334, reused 0, downloaded 249, added 0
+[WARN] Request took 10025ms: https://registry.npmjs.org/@tailwindcss%2Foxide-linux-arm64-musl
+[WARN] Request took 12031ms: https://registry.npmjs.org/@typescript-eslint%2Ftype-utils
+[WARN] Request took 12154ms: https://registry.npmjs.org/@typescript-eslint%2Ftypes
+Progress: resolved 348, reused 0, downloaded 255, added 0
+[WARN] Request took 12220ms: https://registry.npmjs.org/@typescript-eslint%2Fvisitor-keys
+[WARN] Request took 12459ms: https://registry.npmjs.org/@typescript-eslint%2Fscope-manager
+Progress: resolved 428, reused 0, downloaded 273, added 0
+Progress: resolved 465, reused 0, downloaded 303, added 0
+Progress: resolved 490, reused 0, downloaded 316, added 0
+Progress: resolved 511, reused 0, downloaded 344, added 0
+Progress: resolved 561, reused 0, downloaded 353, added 0
+Progress: resolved 607, reused 0, downloaded 428, added 0
+[WARN] 2 deprecated subdependencies found: @esbuild-kit/core-utils@3.3.2, @esbuild-kit/esm-loader@2.6.5
+Progress: resolved 637, reused 0, downloaded 439, added 0
+Progress: resolved 637, reused 0, downloaded 444, added 0
+Packages: +461
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 637, reused 0, downloaded 458, added 0
+Progress: resolved 637, reused 0, downloaded 466, added 0
+Progress: resolved 637, reused 0, downloaded 467, added 5
+Progress: resolved 637, reused 0, downloaded 468, added 13
+Progress: resolved 637, reused 0, downloaded 468, added 19
+Progress: resolved 637, reused 0, downloaded 468, added 55
+Progress: resolved 637, reused 0, downloaded 468, added 164
+Progress: resolved 637, reused 0, downloaded 468, added 280
+Progress: resolved 637, reused 0, downloaded 468, added 318
+Progress: resolved 637, reused 0, downloaded 468, added 386
+Progress: resolved 637, reused 0, downloaded 468, added 435
+Progress: resolved 637, reused 0, downloaded 468, added 458
+Progress: resolved 637, reused 0, downloaded 468, added 460
+Progress: resolved 637, reused 0, downloaded 468, added 461, done
+
+dependencies:
++ drizzle-orm 0.45.2
++ react 19.2.6 (19.2.8 is available)
++ react-dom 19.2.6 (19.2.8 is available)
+
+devDependencies:
++ @cloudflare/vite-plugin 1.37.1 (1.51.1 is available)
++ @eslint/js 9.39.4 (10.0.1 is available)
++ @next/eslint-plugin-next 16.2.6 (16.3.0 is available)
++ @tailwindcss/postcss 4.2.1 (4.3.3 is available)
++ @types/node 22.19.19 (26.2.0 is available)
++ @types/react 19.2.14 (19.2.18 is available)
++ @types/react-dom 19.2.3 (19.2.4 is available)
++ @vitejs/plugin-react 6.0.2 (6.0.5 is available)
++ @vitejs/plugin-rsc 0.5.26 (0.5.34 is available)
++ drizzle-kit 0.31.10
++ eslint 9.39.4 (10.8.1 is available)
++ eslint-plugin-jsx-a11y 6.10.2
++ eslint-plugin-react 7.37.5
++ eslint-plugin-react-hooks 7.1.1
++ globals 16.4.0 (17.9.0 is available)
++ react-server-dom-webpack 19.2.6 (19.2.8 is available)
++ tailwindcss 4.2.1 (4.3.3 is available)
++ typescript 5.9.3 (7.0.2 is available)
++ typescript-eslint 8.59.3 (8.66.0 is available)
++ vinext 1.0.0-beta.2 (1.0.0-beta.5 is available)
++ vite 8.0.13 (8.2.1 is available)
++ wrangler 4.92.0 (4.120.0 is available)
+
+[ERR_PNPM_IGNORED_BUILDS] Ignored build scripts: esbuild@0.18.20, esbuild@0.25.12, esbuild@0.27.3, esbuild@0.28.2, sharp@0.34.5, workerd@1.20260515.1
+
+Run "pnpm approve-builds" to pick which dependencies should be allowed to run scripts.
+[ERROR] Command failed with exit code 1: "C:\Users\Shadow\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe" "C:\Users\Shadow\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\node_modules\pnpm\bin\pnpm.mjs" install
+
+pnpm: Command failed with exit code 1: "C:\Users\Shadow\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe" "C:\Users\Shadow\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\node_modules\pnpm\bin\pnpm.mjs" install
+    at getFinalError (file:///C:/Users/Shadow/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/pnpm/dist/pnpm.mjs:88120:14)
+    at makeError (file:///C:/Users/Shadow/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/pnpm/dist/pnpm.mjs:90427:21)
+    at getSyncResult (file:///C:/Users/Shadow/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/pnpm/dist/pnpm.mjs:92271:10)
+    at spawnSubprocessSync (file:///C:/Users/Shadow/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/pnpm/dist/pnpm.mjs:92231:14)
+    at execaCoreSync (file:///C:/Users/Shadow/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/pnpm/dist/pnpm.mjs:92161:23)
+    at callBoundExeca (file:///C:/Users/Shadow/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/pnpm/dist/pnpm.mjs:94689:23)
+    at boundExeca (file:///C:/Users/Shadow/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/pnpm/dist/pnpm.mjs:94666:49)
+    at sync2 (file:///C:/Users/Shadow/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/pnpm/dist/pnpm.mjs:94825:10)
+    at runPnpmCli (file:///C:/Users/Shadow/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/pnpm/dist/pnpm.mjs:249397:5)
+    at runDepsStatusCheck (file:///C:/Users/Shadow/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/pnpm/dist/pnpm.mjs:251163:7)
