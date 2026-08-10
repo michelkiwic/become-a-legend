@@ -594,7 +594,7 @@ a:focus-visible {
 @media (min-width: 1400px) {
   .exhibition-layout {
     display: grid;
-    width: min(100%, 1800px);
+    width: 100%;
     margin: 0 auto;
     grid-template-columns: minmax(0, 3fr) minmax(0, 1fr);
     gap: 18px;
