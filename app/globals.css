@@ -486,6 +486,11 @@ a:focus-visible {
   transform: translateY(12%) scale(2.5);
 }
 
+.closeup-card:nth-child(4):not(.is-active) .closeup-image,
+.closeup-card:nth-child(5):not(.is-active) .closeup-image {
+  transform: translateY(18%) scale(3.25);
+}
+
 .closeup-card.is-active .closeup-image {
   transform: scale(1);
 }
