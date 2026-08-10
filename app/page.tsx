@@ -86,18 +86,27 @@ export default function Home() {
   const [entryStage, setEntryStage] = useState<0 | 1 | 2>(0);
   const hasEntered = entryStage === 2;
   const [activeId, setActiveId] = useState<string | null>(null);
+  const [detailId, setDetailId] = useState<string | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const touchStartX = useRef<number | null>(null);
   const activeCategory = categories.find((category) => category.id === activeId);
   const activeIndex = categories.findIndex((category) => category.id === activeId);
 
   const toggleCategory = (id: string) => {
+    if (id === "01") {
+      setActiveId("01");
+      setDetailId("01");
+      return;
+    }
+
+    setDetailId(null);
     setActiveId((current) => (current === id ? null : id));
   };
 
   const moveCategory = (direction: number) => {
     const currentIndex = activeIndex >= 0 ? activeIndex : 0;
     const nextIndex = (currentIndex + direction + categories.length) % categories.length;
+    setDetailId(null);
     setActiveId(categories[nextIndex].id);
   };
 
@@ -208,6 +217,7 @@ export default function Home() {
             key={category.id}
             onClick={() => {
               setActiveId(category.id);
+              setDetailId(category.id === "01" ? "01" : null);
               setMenuOpen(false);
             }}
           >
@@ -220,6 +230,7 @@ export default function Home() {
           onClick={() => {
             setMenuOpen(false);
             setActiveId(null);
+            setDetailId(null);
             setEntryStage(0);
           }}
         >
@@ -230,6 +241,43 @@ export default function Home() {
       <section className="model-section" id="model" aria-label="Interactive exhibition model">
         <div className="exhibition-layout">
           <div className="model-column">
+        {detailId === "01" ? (
+          <article className="category-detail category-detail-01" aria-labelledby="category-detail-title">
+            <div className="detail-placeholder" aria-hidden="true">
+              <span>Background image</span>
+              <strong>Placeholder</strong>
+            </div>
+
+            <div className="detail-copy">
+              <span className="detail-number">01</span>
+              <p className="detail-kicker">Become a Legend / Category</p>
+              <h1 id="category-detail-title">Bla-Bla-Bla</h1>
+              <p className="detail-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+              </p>
+            </div>
+
+            <img
+              className="detail-cutout"
+              src="closeup-u1-cutout.png"
+              alt="Freigestellte Figur der Kategorie Bla-Bla-Bla"
+              draggable={false}
+            />
+
+            <button
+              className="detail-back"
+              type="button"
+              onClick={() => {
+                setDetailId(null);
+                setActiveId(null);
+              }}
+            >
+              <span aria-hidden="true">←</span> Back to model
+            </button>
+          </article>
+        ) : (
         <div
           className={`model-frame${activeCategory ? " has-active" : ""}`}
           onMouseLeave={() => setActiveId(null)}
@@ -307,6 +355,7 @@ export default function Home() {
             <strong>{activeCategory?.name ?? "Choose a category"}</strong>
           </div>
         </div>
+        )}
 
           </div>
 
@@ -319,7 +368,10 @@ export default function Home() {
                 type="button"
                 aria-label={`${category.id}: ${category.name}`}
                 aria-pressed={category.id === activeId}
-                onClick={() => setActiveId(category.id)}
+                onClick={() => {
+                  setActiveId(category.id);
+                  setDetailId(category.id === "01" ? "01" : null);
+                }}
               >
                 {category.id}
               </button>
@@ -384,14 +436,16 @@ export default function Home() {
                 className={`closeup-card${isActive ? " is-active" : ""}`}
                 key={category.id}
                 onMouseEnter={() => setActiveId(category.id)}
-                onMouseLeave={() => setActiveId(null)}
+                onMouseLeave={() => {
+                  if (!detailId) setActiveId(null);
+                }}
+                onClick={() => toggleCategory(category.id)}
               >
                 <button
                   className="closeup-label"
                   type="button"
                   aria-pressed={isActive}
                   onFocus={() => setActiveId(category.id)}
-                  onClick={() => toggleCategory(category.id)}
                 >
                   <span>{category.id}</span>
                   <strong>{category.name}</strong>
