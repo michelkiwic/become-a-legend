@@ -51,6 +51,10 @@ const categories: Category[] = [
     id: "04",
     name: "Performers",
     point: { x: 74, y: 66.6 },
+    closeup: {
+      src: "closeup-u4-white.webp",
+      alt: "Close-up of a seated black Performer holding a pale wooden figure",
+    },
     outline:
       "M67 56 C73 52 83 52 87 57 C89 64 90 75 86 79 C80 83 70 81 67 77 C64 71 63 62 67 56 Z",
   },
@@ -58,6 +62,10 @@ const categories: Category[] = [
     id: "05",
     name: "Wooden Rebels",
     point: { x: 61.2, y: 69.4 },
+    closeup: {
+      src: "closeup-u5-white.webp",
+      alt: "Close-up of a suspended pale wooden rebel with black and silver costume",
+    },
     outline:
       "M54 59 C58 56 67 55 70 59 C72 65 72 76 69 80 C64 83 56 82 53 78 C51 72 50 64 54 59 Z",
   },
