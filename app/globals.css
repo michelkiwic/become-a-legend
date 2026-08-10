@@ -149,20 +149,57 @@ a:focus-visible {
   padding: 0;
   overflow: hidden;
   border: 0;
-  background: #e51b14;
+  background: transparent;
   color: #fff7dc;
   cursor: pointer;
   opacity: 0;
   pointer-events: none;
-  transform: scale(0.62) rotate(-7deg);
-  transform-origin: 53% 48%;
-  transition: opacity 120ms ease, transform 720ms cubic-bezier(0.16, 1.35, 0.3, 1);
+  transition: opacity 220ms ease;
 }
 
 .entry-sequence.has-announcement .tour-announcement {
   opacity: 1;
   pointer-events: auto;
-  transform: scale(1) rotate(0);
+}
+
+.tour-dimmer {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  display: block;
+  background: rgba(10, 0, 0, 0.76);
+  opacity: 0;
+  transition: opacity 500ms ease;
+}
+
+.entry-sequence.has-announcement .tour-dimmer {
+  opacity: 1;
+}
+
+.tour-poster {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: min(88vw, calc(80svh * 1.726));
+  aspect-ratio: 1208 / 700;
+  overflow: hidden;
+  border: clamp(5px, 0.55vw, 11px) solid #fff7dc;
+  background: #e51b14;
+  box-shadow:
+    clamp(12px, 1.4vw, 26px) clamp(14px, 1.6vw, 30px) 0 #0a0a0a,
+    0 0 0 3px #e51b14;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.58) rotate(-7deg);
+  transform-origin: center;
+  will-change: transform;
+}
+
+.entry-sequence.has-announcement .tour-poster {
+  animation:
+    tour-poster-arrive 720ms cubic-bezier(0.16, 1.35, 0.3, 1) both,
+    tour-poster-float 2.8s 720ms ease-in-out infinite alternate;
 }
 
 .tour-background,
@@ -219,7 +256,7 @@ a:focus-visible {
   top: 50%;
   left: 50%;
   display: flex;
-  width: min(92vw, 1450px);
+  width: 92%;
   flex-direction: column;
   align-items: center;
   transform: translate(-50%, -44%) rotate(-2deg);
@@ -311,6 +348,26 @@ a:focus-visible {
 @keyframes tour-camera {
   from { transform: scale(1.025) translate3d(-0.4%, 0, 0); }
   to { transform: scale(1.09) translate3d(0.7%, -0.7%, 0); }
+}
+
+@keyframes tour-poster-arrive {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.58) rotate(-7deg);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) rotate(-1deg);
+  }
+}
+
+@keyframes tour-poster-float {
+  from {
+    transform: translate(-50%, -50%) rotate(-1deg) translate3d(-5px, 4px, 0) scale(0.992);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(1deg) translate3d(7px, -6px, 0) scale(1.008);
+  }
 }
 
 @keyframes tour-marquee-shake {
@@ -994,13 +1051,21 @@ a:focus-visible {
     object-position: 52% center;
   }
 
+  .tour-poster {
+    width: calc(100% - 28px);
+    height: calc(100svh - 86px);
+    aspect-ratio: auto;
+    border-width: 5px;
+    box-shadow: 9px 11px 0 #0a0a0a, 0 0 0 2px #e51b14;
+  }
+
   .tour-marquee-top {
     top: 3%;
   }
 
   .tour-headline {
     top: 48%;
-    width: 95vw;
+    width: 92%;
     transform: translate(-50%, -42%) rotate(-2deg);
   }
 

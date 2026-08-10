@@ -144,24 +144,27 @@ export default function Home() {
         tabIndex={entryStage === 1 ? 0 : -1}
         onClick={() => setEntryStage(2)}
       >
-        <img
-          className="tour-background"
-          src="yoshi-moshi-red-boat.png"
-          alt="Yoshi and Moshi with a red boat in the jungle"
-          draggable={false}
-        />
-        <span className="tour-shade" aria-hidden="true" />
-        <span className="tour-marquee tour-marquee-top" aria-hidden="true">
-          HONK! HONK! &nbsp; THE LEGENDS ARE ON THE MOVE &nbsp; HONK! HONK! &nbsp; THE LEGENDS ARE ON THE MOVE
+        <span className="tour-dimmer" aria-hidden="true" />
+        <span className="tour-poster">
+          <img
+            className="tour-background"
+            src="yoshi-moshi-red-boat.png"
+            alt="Yoshi and Moshi with a red boat in the jungle"
+            draggable={false}
+          />
+          <span className="tour-shade" aria-hidden="true" />
+          <span className="tour-marquee tour-marquee-top" aria-hidden="true">
+            HONK! HONK! &nbsp; THE LEGENDS ARE ON THE MOVE &nbsp; HONK! HONK! &nbsp; THE LEGENDS ARE ON THE MOVE
+          </span>
+          <span className="tour-headline">
+            <strong>Yoshi + Moshi</strong>
+            <strong>are coming to</strong>
+            <strong>your town!</strong>
+          </span>
+          <span className="tour-badge tour-badge-left" aria-hidden="true">LIVE!</span>
+          <span className="tour-badge tour-badge-right" aria-hidden="true">SOON!</span>
+          <span className="tour-enter">Click again — make way!</span>
         </span>
-        <span className="tour-headline">
-          <strong>Yoshi + Moshi</strong>
-          <strong>are coming to</strong>
-          <strong>your town!</strong>
-        </span>
-        <span className="tour-badge tour-badge-left" aria-hidden="true">LIVE!</span>
-        <span className="tour-badge tour-badge-right" aria-hidden="true">SOON!</span>
-        <span className="tour-enter">Click again — make way!</span>
       </button>
       </div>
 
