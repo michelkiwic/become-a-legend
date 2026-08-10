@@ -46,15 +46,17 @@ a:focus-visible {
   background: #a90000;
   color: #fff;
   cursor: pointer;
-  opacity: 1;
-  transition: opacity 700ms ease, visibility 700ms step-start;
+  transform: translate3d(0, 0, 0);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.48);
+  will-change: transform;
+  transition: transform 900ms cubic-bezier(0.76, 0, 0.24, 1), visibility 900ms step-start;
 }
 
 .entry-screen.is-entered {
   visibility: hidden;
   pointer-events: none;
-  opacity: 0;
-  transition: opacity 700ms ease, visibility 700ms step-end;
+  transform: translate3d(0, -103%, 0);
+  transition: transform 900ms cubic-bezier(0.76, 0, 0.24, 1), visibility 900ms step-end;
 }
 
 .entry-background,
