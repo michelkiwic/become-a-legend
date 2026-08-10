@@ -151,6 +151,20 @@ export default function Home() {
           draggable={false}
         />
         <span className="tour-shade" aria-hidden="true" />
+        <img
+          className="tour-character tour-character-left"
+          src="yoshi-moshi-red-boat.png"
+          alt=""
+          aria-hidden="true"
+          draggable={false}
+        />
+        <img
+          className="tour-character tour-character-right"
+          src="yoshi-moshi-red-boat.png"
+          alt=""
+          aria-hidden="true"
+          draggable={false}
+        />
         <span className="tour-marquee tour-marquee-top" aria-hidden="true">
           HONK! HONK! &nbsp; THE LEGENDS ARE ON THE MOVE &nbsp; HONK! HONK! &nbsp; THE LEGENDS ARE ON THE MOVE
         </span>

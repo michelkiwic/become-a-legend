@@ -181,6 +181,30 @@ a:focus-visible {
   animation: tour-camera 8s ease-in-out infinite alternate;
 }
 
+.tour-character {
+  position: absolute;
+  z-index: 6;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(1.15) contrast(1.05) drop-shadow(8px 10px 0 rgba(10, 10, 10, 0.28));
+  opacity: 0;
+  pointer-events: none;
+  animation:
+    tour-camera 8s ease-in-out infinite alternate,
+    tour-character-pop 580ms 280ms cubic-bezier(0.16, 1.35, 0.3, 1) forwards;
+}
+
+.tour-character-left {
+  clip-path: polygon(18% 23%, 31% 22%, 36% 35%, 34% 49%, 38% 63%, 35% 86%, 27% 87%, 24% 72%, 18% 62%, 16% 43%);
+}
+
+.tour-character-right {
+  clip-path: polygon(47% 29%, 60% 29%, 69% 45%, 65% 60%, 64% 77%, 72% 100%, 48% 100%, 45% 78%, 40% 64%, 43% 45%);
+}
+
 .tour-shade {
   background:
     linear-gradient(90deg, rgba(18, 45, 4, 0.16), rgba(0, 0, 0, 0.05) 45%, rgba(55, 0, 0, 0.22)),
@@ -244,7 +268,7 @@ a:focus-visible {
 
 .tour-headline strong:nth-child(1) {
   transform: rotate(1.5deg) translateX(-4vw);
-  animation: tour-title-left 1.8s ease-in-out infinite alternate;
+  animation: tour-title-scatter-one 1.05s 720ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .tour-headline strong:nth-child(2) {
@@ -252,18 +276,18 @@ a:focus-visible {
   background: #e51b14;
   color: #fff7dc;
   transform: rotate(-1deg) translateX(5vw);
-  animation: tour-title-right 1.5s ease-in-out infinite alternate;
+  animation: tour-title-scatter-two 1.05s 790ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .tour-headline strong:nth-child(3) {
   margin-top: 0.1em;
   transform: rotate(2deg) translateX(-1vw);
-  animation: tour-title-pop 0.9s ease-in-out infinite alternate;
+  animation: tour-title-scatter-three 1.05s 860ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .tour-badge {
   position: absolute;
-  z-index: 5;
+  z-index: 7;
   display: grid;
   width: clamp(78px, 9vw, 150px);
   aspect-ratio: 1;
@@ -294,7 +318,7 @@ a:focus-visible {
 
 .tour-enter {
   position: absolute;
-  z-index: 5;
+  z-index: 7;
   right: 3vw;
   bottom: 3vh;
   padding: 11px 15px 9px;
@@ -318,19 +342,27 @@ a:focus-visible {
   100% { translate: 4px 1px; }
 }
 
-@keyframes tour-title-left {
-  from { transform: rotate(1.5deg) translateX(-4vw) translateY(-3px); }
-  to { transform: rotate(-0.4deg) translateX(-4vw) translateY(4px); }
+@keyframes tour-character-pop {
+  from { opacity: 0; scale: 0.92; }
+  to { opacity: 1; scale: 1; }
 }
 
-@keyframes tour-title-right {
-  from { transform: rotate(-1deg) translateX(5vw) scale(1); }
-  to { transform: rotate(1deg) translateX(5vw) scale(1.025); }
+@keyframes tour-title-scatter-one {
+  0%, 22% { transform: rotate(1.5deg) translateX(-4vw) scale(1); }
+  72% { transform: rotate(-4deg) translate(-15vw, -27vh) scale(0.62); }
+  100% { transform: rotate(-2.5deg) translate(-14vw, -25vh) scale(0.65); }
 }
 
-@keyframes tour-title-pop {
-  from { transform: rotate(2deg) translateX(-1vw) scale(1); }
-  to { transform: rotate(-1deg) translateX(-1vw) scale(1.045); }
+@keyframes tour-title-scatter-two {
+  0%, 22% { transform: rotate(-1deg) translateX(5vw) scale(1); }
+  72% { transform: rotate(5deg) translate(27vw, -6vh) scale(0.57); }
+  100% { transform: rotate(3deg) translate(25vw, -4vh) scale(0.6); }
+}
+
+@keyframes tour-title-scatter-three {
+  0%, 22% { transform: rotate(2deg) translateX(-1vw) scale(1); }
+  72% { transform: rotate(-5deg) translate(-17vw, 26vh) scale(0.65); }
+  100% { transform: rotate(-3deg) translate(-15vw, 23vh) scale(0.68); }
 }
 
 @keyframes tour-badge-bounce {
@@ -991,7 +1023,12 @@ a:focus-visible {
   }
 
   .tour-background {
+    object-fit: contain;
     object-position: 52% center;
+  }
+
+  .tour-character {
+    display: none;
   }
 
   .tour-marquee-top {
@@ -1012,10 +1049,16 @@ a:focus-visible {
 
   .tour-headline strong:nth-child(1) {
     transform: rotate(1.5deg) translateX(-2vw);
+    animation-name: tour-title-mobile-one;
   }
 
   .tour-headline strong:nth-child(2) {
     transform: rotate(-1deg) translateX(3vw);
+    animation-name: tour-title-mobile-two;
+  }
+
+  .tour-headline strong:nth-child(3) {
+    animation-name: tour-title-mobile-three;
   }
 
   .tour-badge {
@@ -1036,6 +1079,21 @@ a:focus-visible {
   .tour-enter {
     right: 16px;
     bottom: 18px;
+  }
+
+  @keyframes tour-title-mobile-one {
+    0%, 22% { transform: rotate(1.5deg) translateX(-2vw) scale(1); }
+    100% { transform: rotate(-2deg) translate(-5vw, -29vh) scale(0.72); }
+  }
+
+  @keyframes tour-title-mobile-two {
+    0%, 22% { transform: rotate(-1deg) translateX(3vw) scale(1); }
+    100% { transform: rotate(2deg) translate(10vw, 19vh) scale(0.7); }
+  }
+
+  @keyframes tour-title-mobile-three {
+    0%, 22% { transform: rotate(2deg) translateX(-1vw) scale(1); }
+    100% { transform: rotate(-2deg) translate(-5vw, 27vh) scale(0.72); }
   }
 
   .site-shell {
