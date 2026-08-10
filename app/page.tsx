@@ -83,7 +83,8 @@ const categories: Category[] = [
 ];
 
 export default function Home() {
-  const [hasEntered, setHasEntered] = useState(false);
+  const [entryStage, setEntryStage] = useState<0 | 1 | 2>(0);
+  const hasEntered = entryStage === 2;
   const [activeId, setActiveId] = useState<string | null>(null);
   const touchStartX = useRef<number | null>(null);
   const activeCategory = categories.find((category) => category.id === activeId);
@@ -109,13 +110,17 @@ export default function Home() {
 
   return (
     <>
-      <button
-        className={`entry-screen${hasEntered ? " is-entered" : ""}`}
-        type="button"
-        aria-label="Enter the Become a Legend exhibition"
+      <div
+        className={`entry-sequence${entryStage >= 1 ? " has-announcement" : ""}${hasEntered ? " is-entered" : ""}`}
         aria-hidden={hasEntered}
-        tabIndex={hasEntered ? -1 : 0}
-        onClick={() => setHasEntered(true)}
+      >
+      <button
+        className="entry-screen"
+        type="button"
+        aria-label="Show the Yoshi and Moshi tour announcement"
+        aria-hidden={entryStage !== 0}
+        tabIndex={entryStage === 0 ? 0 : -1}
+        onClick={() => setEntryStage(1)}
       >
         <img
           className="entry-background"
@@ -128,8 +133,37 @@ export default function Home() {
           <strong>No humor<br />= no entry</strong>
           <img src="entry-red-cross.png" alt="" draggable={false} />
         </span>
-        <span className="entry-action">Click or tap to enter</span>
+        <span className="entry-action">Click or tap for breaking news</span>
       </button>
+
+      <button
+        className="tour-announcement"
+        type="button"
+        aria-label="Enter the Become a Legend exhibition"
+        aria-hidden={entryStage !== 1}
+        tabIndex={entryStage === 1 ? 0 : -1}
+        onClick={() => setEntryStage(2)}
+      >
+        <img
+          className="tour-background"
+          src="yoshi-moshi-red-boat.png"
+          alt="Yoshi and Moshi with a red boat in the jungle"
+          draggable={false}
+        />
+        <span className="tour-shade" aria-hidden="true" />
+        <span className="tour-marquee tour-marquee-top" aria-hidden="true">
+          HONK! HONK! &nbsp; THE LEGENDS ARE ON THE MOVE &nbsp; HONK! HONK! &nbsp; THE LEGENDS ARE ON THE MOVE
+        </span>
+        <span className="tour-headline">
+          <strong>Yoshi + Moshi</strong>
+          <strong>are coming to</strong>
+          <strong>your town!</strong>
+        </span>
+        <span className="tour-badge tour-badge-left" aria-hidden="true">LIVE!</span>
+        <span className="tour-badge tour-badge-right" aria-hidden="true">SOON!</span>
+        <span className="tour-enter">Click again — make way!</span>
+      </button>
+      </div>
 
     <main
       className={`site-shell${hasEntered ? " is-revealed" : ""}`}
