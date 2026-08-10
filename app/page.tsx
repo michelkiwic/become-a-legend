@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type Category = {
   id: string;
@@ -76,6 +76,7 @@ const categories: Category[] = [
 
 export default function Home() {
   const [activeId, setActiveId] = useState<string | null>(null);
+  const [isLightTheme, setIsLightTheme] = useState(false);
   const touchStartX = useRef<number | null>(null);
   const activeCategory = categories.find((category) => category.id === activeId);
   const activeIndex = categories.findIndex((category) => category.id === activeId);
@@ -98,6 +99,22 @@ export default function Home() {
     moveCategory(distance < 0 ? 1 : -1);
   };
 
+  useEffect(() => {
+    const savedTheme = window.localStorage.getItem("yoshi-moshi-theme");
+    const useLightTheme = savedTheme === "light";
+    setIsLightTheme(useLightTheme);
+    document.documentElement.dataset.theme = useLightTheme ? "light" : "dark";
+  }, []);
+
+  const toggleTheme = () => {
+    setIsLightTheme((current) => {
+      const nextTheme = current ? "dark" : "light";
+      document.documentElement.dataset.theme = nextTheme;
+      window.localStorage.setItem("yoshi-moshi-theme", nextTheme);
+      return !current;
+    });
+  };
+
   return (
     <main className="site-shell">
       <header className="masthead">
@@ -108,10 +125,22 @@ export default function Home() {
           <span>Become a Legend</span>
           <span>Exhibition model · Six categories</span>
         </div>
-        <p className="instruction">
-          <span className="instruction-dot" aria-hidden="true" />
-          Move or tap to explore
-        </p>
+        <div className="masthead-actions">
+          <button
+            className="theme-toggle"
+            type="button"
+            aria-label={`Switch to ${isLightTheme ? "dark" : "light"} theme`}
+            aria-pressed={isLightTheme}
+            onClick={toggleTheme}
+          >
+            <span className="theme-toggle-dot" aria-hidden="true" />
+            <span className="theme-toggle-label">{isLightTheme ? "Dark" : "Light"}</span>
+          </button>
+          <p className="instruction">
+            <span className="instruction-dot" aria-hidden="true" />
+            Move or tap to explore
+          </p>
+        </div>
       </header>
 
       <section className="model-section" id="model" aria-label="Interactive exhibition model">

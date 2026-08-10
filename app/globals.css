@@ -2,6 +2,17 @@
   --ink: #0a0a0a;
   --paper: #f2f0e9;
   --line: rgba(242, 240, 233, 0.32);
+  --page-bg: var(--ink);
+  --page-text: var(--paper);
+  --page-line: var(--line);
+  color-scheme: dark;
+}
+
+:root[data-theme="light"] {
+  --page-bg: #f2f0e9;
+  --page-text: #0a0a0a;
+  --page-line: rgba(10, 10, 10, 0.28);
+  color-scheme: light;
 }
 
 * {
@@ -9,14 +20,14 @@
 }
 
 html {
-  background: var(--ink);
+  background: var(--page-bg);
   scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--page-bg);
+  color: var(--page-text);
   font-family: Arial, Helvetica, sans-serif;
   text-rendering: geometricPrecision;
 }
@@ -29,7 +40,7 @@ a {
 
 button:focus-visible,
 a:focus-visible {
-  outline: 2px solid var(--paper);
+  outline: 2px solid var(--page-text);
   outline-offset: 4px;
 }
 
@@ -84,7 +95,6 @@ a:focus-visible {
 }
 
 .instruction {
-  justify-self: end;
   display: flex;
   align-items: center;
   gap: 9px;
@@ -418,7 +428,7 @@ a:focus-visible {
   min-height: 48px;
   padding: 9px 9px 10px;
   border: 0;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--page-line);
   background: #0a0a0a;
   color: rgba(242, 240, 233, 0.55);
   text-align: left;
@@ -449,6 +459,50 @@ a:focus-visible {
   letter-spacing: 0.14em;
 }
 
+.masthead-actions {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.theme-toggle {
+  display: flex;
+  min-height: 32px;
+  align-items: center;
+  gap: 7px;
+  padding: 0 10px;
+  border: 1px solid var(--page-line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--page-text);
+  cursor: pointer;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.theme-toggle-dot {
+  width: 11px;
+  height: 11px;
+  border: 1px solid var(--page-text);
+  border-radius: 50%;
+  background: var(--page-text);
+  box-shadow: inset 5px 0 0 var(--page-bg);
+}
+
+:root[data-theme="light"] .exhibition-title span:last-child,
+:root[data-theme="light"] .instruction,
+:root[data-theme="light"] .site-footer {
+  color: rgba(10, 10, 10, 0.58);
+}
+
+:root[data-theme="light"] .instruction-dot {
+  background: #0a0a0a;
+  box-shadow: 0 0 0 5px rgba(10, 10, 10, 0.08);
+}
+
 .closeup-label strong {
   overflow: hidden;
   font-size: clamp(0.56rem, 0.72vw, 0.72rem);
@@ -460,7 +514,7 @@ a:focus-visible {
 
 .closeup-label:hover,
 .closeup-card.is-active .closeup-label {
-  color: var(--paper);
+  color: var(--page-text);
 }
 
 .closeup-label:hover::after,
@@ -620,7 +674,8 @@ a:focus-visible {
 
   .masthead {
     min-height: 72px;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 1fr auto auto;
+    gap: 9px;
   }
 
   .exhibition-title {
@@ -630,6 +685,21 @@ a:focus-visible {
 
   .exhibition-title span:last-child,
   .instruction {
+    display: none;
+  }
+
+  .masthead-actions {
+    gap: 0;
+  }
+
+  .theme-toggle {
+    width: 34px;
+    min-height: 34px;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .theme-toggle-label {
     display: none;
   }
 
