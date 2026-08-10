@@ -83,6 +83,7 @@ const categories: Category[] = [
 ];
 
 export default function Home() {
+  const [hasEntered, setHasEntered] = useState(false);
   const [activeId, setActiveId] = useState<string | null>(null);
   const touchStartX = useRef<number | null>(null);
   const activeCategory = categories.find((category) => category.id === activeId);
@@ -107,7 +108,34 @@ export default function Home() {
   };
 
   return (
-    <main className="site-shell">
+    <>
+      <button
+        className={`entry-screen${hasEntered ? " is-entered" : ""}`}
+        type="button"
+        aria-label="Enter the Become a Legend exhibition"
+        aria-hidden={hasEntered}
+        tabIndex={hasEntered ? -1 : 0}
+        onClick={() => setHasEntered(true)}
+      >
+        <img
+          className="entry-background"
+          src="entry-no-humor.png"
+          alt="Yoshi and Moshi lying on a bed in a red room"
+          draggable={false}
+        />
+        <span className="entry-shade" aria-hidden="true" />
+        <span className="entry-message">
+          <strong>No humor<br />= no entry</strong>
+          <img src="entry-red-cross.png" alt="" draggable={false} />
+        </span>
+        <span className="entry-action">Click or tap to enter</span>
+      </button>
+
+    <main
+      className={`site-shell${hasEntered ? " is-revealed" : ""}`}
+      aria-hidden={!hasEntered}
+      inert={!hasEntered}
+    >
       <header className="masthead">
         <a className="wordmark" href="#model" aria-label="Yoshi und Moshi – zum Ausstellungsmodell">
           YOSHI<span>+</span>MOSHI
@@ -321,5 +349,6 @@ export default function Home() {
         <span>Nina Staehli</span>
       </footer>
     </main>
+    </>
   );
 }
