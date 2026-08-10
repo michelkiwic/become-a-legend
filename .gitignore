@@ -28,6 +28,9 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 .sites-dev*.log
+dev-server*.log
+vinext*.log
+*-sites.tar.gz
 
 # env files (can opt-in for committing if needed)
 .env*
