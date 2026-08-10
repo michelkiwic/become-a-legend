@@ -2,6 +2,7 @@
   --ink: #0a0a0a;
   --paper: #f2f0e9;
   --line: rgba(242, 240, 233, 0.32);
+  --rebel-pink: #ed0359;
 }
 
 * {
@@ -784,12 +785,35 @@ a:focus-visible {
   opacity: 1;
 }
 
-.closeup-image {
+.closeup-media {
   position: relative;
   z-index: 1;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: #fff;
+}
+
+.closeup-media::after {
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  border: 6px solid var(--rebel-pink);
+  content: "";
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(1.045);
+  transition: opacity 240ms ease, transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.closeup-card.is-active .closeup-media::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.closeup-image {
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 5;
+  height: 100%;
   background: #fff;
   object-fit: cover;
   object-position: center;

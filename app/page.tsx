@@ -354,14 +354,16 @@ export default function Home() {
                   <strong>{category.name}</strong>
                 </button>
                 {category.closeup ? (
-                  <img
-                    className="closeup-image"
-                    src={category.closeup.src}
-                    alt={category.closeup.alt}
-                    loading="lazy"
-                    decoding="async"
-                    draggable={false}
-                  />
+                  <div className="closeup-media">
+                    <img
+                      className="closeup-image"
+                      src={category.closeup.src}
+                      alt={category.closeup.alt}
+                      loading="lazy"
+                      decoding="async"
+                      draggable={false}
+                    />
+                  </div>
                 ) : (
                   <div className="closeup-placeholder" aria-hidden="true">
                     <span>{`U${index + 1}`}</span>
