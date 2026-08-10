@@ -19,7 +19,7 @@ const categories: Category[] = [
     name: "Bla-Bla-Bla",
     point: { x: 18.7, y: 56 },
     closeup: {
-      src: "/closeup-u1-white.webp",
+      src: "closeup-u1-white.webp",
       alt: "Close-up of a pale Bla-Bla-Bla figure with paper ribbons",
     },
     outline:
@@ -30,7 +30,7 @@ const categories: Category[] = [
     name: "Movement-Dancers",
     point: { x: 33.1, y: 57.4 },
     closeup: {
-      src: "/closeup-u2-white.webp",
+      src: "closeup-u2-white.webp",
       alt: "Close-up of a suspended Movement-Dancer with a black head and knitted costume",
     },
     outline:
@@ -41,7 +41,7 @@ const categories: Category[] = [
     name: "Big Heads",
     point: { x: 47.2, y: 71.9 },
     closeup: {
-      src: "/closeup-u3-white.webp",
+      src: "closeup-u3-white.webp",
       alt: "Close-up of a Big Heads sculpture with black vessels and a pale spherical face",
     },
     outline:
@@ -66,7 +66,7 @@ const categories: Category[] = [
     name: "The Climb",
     point: { x: 74.8, y: 49.8 },
     closeup: {
-      src: "/closeup-u6-white.webp",
+      src: "closeup-u6-white.webp",
       alt: "Close-up of a suspended black figure from The Climb",
     },
     outline:
@@ -123,7 +123,7 @@ export default function Home() {
         >
           <img
             className="model-image model-image-base"
-            src="/yoshi-moshi-model.jpg"
+            src="yoshi-moshi-model.jpg"
             alt="Yoshi and Moshi presenting a miniature exhibition model with six groups of figures"
             draggable={false}
           />
@@ -184,7 +184,7 @@ export default function Home() {
 
           <img
             className={`idle-logo${activeCategory ? " is-hidden" : ""}`}
-            src="/yoshi-moshi-logo.webp"
+            src="yoshi-moshi-logo.webp"
             alt="Yoshi + Moshi"
             draggable={false}
           />

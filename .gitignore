@@ -39,6 +39,7 @@ vinext*.log
 .vercel
 
 /dist/
+/github-pages-dist/
 /.wrangler/
 /outputs/
 /work/
