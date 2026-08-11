@@ -248,11 +248,6 @@ export default function Home() {
           <div className="model-column">
         {detailId === "01" ? (
           <article className="category-detail category-detail-01" aria-labelledby="category-detail-title">
-            <div className="detail-placeholder" aria-hidden="true">
-              <span>Background image</span>
-              <strong>Placeholder</strong>
-            </div>
-
             <div className="detail-copy">
               <span className="detail-number">01</span>
               <p className="detail-kicker">Become a Legend / Category</p>
