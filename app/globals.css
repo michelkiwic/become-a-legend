@@ -858,6 +858,40 @@ a:focus-visible {
   animation: detail-cutout-float 5.2s ease-in-out infinite;
 }
 
+.detail-cutout-white {
+  mix-blend-mode: multiply;
+}
+
+.category-detail-02 .detail-cutout {
+  right: -1%;
+  bottom: -10%;
+  height: 104%;
+}
+
+.category-detail-03 .detail-cutout {
+  right: -5%;
+  bottom: -9%;
+  height: 105%;
+}
+
+.category-detail-04 .detail-cutout {
+  right: -2%;
+  bottom: -13%;
+  height: 108%;
+}
+
+.category-detail-05 .detail-cutout {
+  right: 1%;
+  bottom: -12%;
+  height: 108%;
+}
+
+.category-detail-06 .detail-cutout {
+  right: 4%;
+  bottom: -11%;
+  height: 104%;
+}
+
 .detail-back {
   position: absolute;
   z-index: 5;

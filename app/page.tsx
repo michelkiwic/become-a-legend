@@ -7,6 +7,7 @@ type Category = {
   name: string;
   point: { x: number; y: number };
   outline: string;
+  detailSrc: string;
   closeup?: {
     src: string;
     alt: string;
@@ -18,6 +19,7 @@ const categories: Category[] = [
     id: "01",
     name: "Bla-Bla-Bla",
     point: { x: 18.7, y: 56 },
+    detailSrc: "closeup-u1-cutout.png",
     closeup: {
       src: "closeup-u1-white.webp",
       alt: "Close-up of a pale Bla-Bla-Bla figure with paper ribbons",
@@ -29,6 +31,7 @@ const categories: Category[] = [
     id: "02",
     name: "Movement-Dancers",
     point: { x: 33.1, y: 57.4 },
+    detailSrc: "closeup-u2-white.webp",
     closeup: {
       src: "closeup-u2-white.webp",
       alt: "Close-up of a suspended Movement-Dancer with a black head and knitted costume",
@@ -40,6 +43,7 @@ const categories: Category[] = [
     id: "03",
     name: "Big Heads",
     point: { x: 47.2, y: 71.9 },
+    detailSrc: "closeup-u3-white.webp",
     closeup: {
       src: "closeup-u3-white.webp",
       alt: "Close-up of a Big Heads sculpture with black vessels and a pale spherical face",
@@ -51,6 +55,7 @@ const categories: Category[] = [
     id: "04",
     name: "Performers",
     point: { x: 74, y: 66.6 },
+    detailSrc: "closeup-u4-white.webp",
     closeup: {
       src: "closeup-u4-white.webp",
       alt: "Close-up of a seated black Performer holding a pale wooden figure",
@@ -62,6 +67,7 @@ const categories: Category[] = [
     id: "05",
     name: "Wooden Rebels",
     point: { x: 61.2, y: 69.4 },
+    detailSrc: "closeup-u5-white.webp",
     closeup: {
       src: "closeup-u5-white.webp",
       alt: "Close-up of a suspended pale wooden rebel with black and silver costume",
@@ -73,6 +79,7 @@ const categories: Category[] = [
     id: "06",
     name: "The Climb",
     point: { x: 74.8, y: 49.8 },
+    detailSrc: "closeup-u6-white.webp",
     closeup: {
       src: "closeup-u6-white.webp",
       alt: "Close-up of a suspended black figure from The Climb",
@@ -95,17 +102,12 @@ export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const touchStartX = useRef<number | null>(null);
   const activeCategory = categories.find((category) => category.id === activeId);
+  const detailCategory = categories.find((category) => category.id === detailId);
   const activeIndex = categories.findIndex((category) => category.id === activeId);
 
   const toggleCategory = (id: string) => {
-    if (id === "01") {
-      setActiveId("01");
-      setDetailId("01");
-      return;
-    }
-
-    setDetailId(null);
-    setActiveId((current) => (current === id ? null : id));
+    setActiveId(id);
+    setDetailId(id);
   };
 
   const moveCategory = (direction: number) => {
@@ -222,7 +224,7 @@ export default function Home() {
             key={category.id}
             onClick={() => {
               setActiveId(category.id);
-              setDetailId(category.id === "01" ? "01" : null);
+              setDetailId(category.id);
               setMenuOpen(false);
             }}
           >
@@ -256,12 +258,16 @@ export default function Home() {
       <section className="model-section" id="model" aria-label="Interactive exhibition model">
         <div className="exhibition-layout">
           <div className="model-column">
-        {detailId === "01" ? (
-          <article className="category-detail category-detail-01" aria-labelledby="category-detail-title">
+        {detailCategory ? (
+          <article
+            className={`category-detail category-detail-${detailCategory.id}`}
+            aria-labelledby="category-detail-title"
+            key={detailCategory.id}
+          >
             <div className="detail-copy">
-              <span className="detail-number">01</span>
+              <span className="detail-number">{detailCategory.id}</span>
               <p className="detail-kicker">Become a Legend / Category</p>
-              <h1 id="category-detail-title">Bla-Bla-Bla</h1>
+              <h1 id="category-detail-title">{detailCategory.name}</h1>
               <p className="detail-text">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
                 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
@@ -270,9 +276,9 @@ export default function Home() {
             </div>
 
             <img
-              className="detail-cutout"
-              src="closeup-u1-cutout.png"
-              alt="Freigestellte Figur der Kategorie Bla-Bla-Bla"
+              className={`detail-cutout${detailCategory.id === "01" ? "" : " detail-cutout-white"}`}
+              src={detailCategory.detailSrc}
+              alt={`Figur der Kategorie ${detailCategory.name}`}
               draggable={false}
             />
 
@@ -384,7 +390,7 @@ export default function Home() {
                 aria-pressed={category.id === activeId}
                 onClick={() => {
                   setActiveId(category.id);
-                  setDetailId(category.id === "01" ? "01" : null);
+                  setDetailId(category.id);
                 }}
               >
                 {category.id}
