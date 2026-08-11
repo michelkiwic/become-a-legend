@@ -230,6 +230,16 @@ export default function Home() {
             <strong>{category.name}</strong>
           </a>
         ))}
+        {utilityCategories.map((category) => (
+          <a
+            href={`#${category.name.toLowerCase()}`}
+            key={category.id}
+            onClick={() => setMenuOpen(false)}
+          >
+            <span>{category.id}</span>
+            <strong>{category.name}</strong>
+          </a>
+        ))}
         <button
           type="button"
           onClick={() => {
@@ -289,7 +299,9 @@ export default function Home() {
             draggable={false}
           />
 
-          <span className="funded-button" aria-label="Fully funded">Fully funded!</span>
+          <span className="funded-button" aria-label="Fully funded">
+            <span className="funded-button-face">Fully funded!</span>
+          </span>
 
           <svg
             className="hotspot-map"
@@ -479,6 +491,7 @@ export default function Home() {
             <button
               className="closeup-card utility-card"
               key={category.id}
+              id={category.name.toLowerCase()}
               type="button"
               aria-label={`${category.id}: ${category.name}`}
             >
