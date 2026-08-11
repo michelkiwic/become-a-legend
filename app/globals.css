@@ -736,6 +736,7 @@ a:focus-visible {
 .site-menu > button {
   min-height: 56px;
   border-bottom: 0;
+  box-shadow: inset 0 4px 0 var(--paper);
   grid-template-columns: 1fr;
   color: var(--paper);
   font-size: 0.68rem;
