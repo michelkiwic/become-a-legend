@@ -1306,12 +1306,12 @@ a:focus-visible {
 .utility-card {
   position: relative;
   display: flex;
-  min-height: 0;
-  aspect-ratio: 4 / 5;
-  flex-direction: column;
+  min-height: 48px;
+  flex-direction: row;
   align-items: flex-start;
-  justify-content: space-between;
-  padding: 12px 11px;
+  justify-content: flex-start;
+  gap: 7px;
+  padding: 9px;
   border: 0;
   background:
     linear-gradient(135deg, transparent 49.7%, rgba(242, 240, 233, 0.08) 50%, transparent 50.3%),
@@ -1324,24 +1324,25 @@ a:focus-visible {
 }
 
 .utility-card span {
+  padding-top: 1px;
   font-size: 0.56rem;
   letter-spacing: 0.14em;
 }
 
 .utility-card strong {
-  font-size: clamp(1.25rem, 2vw, 2.1rem);
-  font-weight: 900;
-  letter-spacing: -0.06em;
-  line-height: 0.82;
+  overflow: hidden;
+  padding-top: 1px;
+  font-size: clamp(0.56rem, 0.72vw, 0.72rem);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  text-overflow: ellipsis;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .utility-card small {
-  font-size: 0.5rem;
-  font-weight: 800;
-  letter-spacing: 0.14em;
-  opacity: 0.52;
-  text-transform: uppercase;
+  display: none;
 }
 
 .utility-card:hover,
