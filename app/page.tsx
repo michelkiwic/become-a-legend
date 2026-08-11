@@ -106,6 +106,12 @@ export default function Home() {
   const activeIndex = categories.findIndex((category) => category.id === activeId);
 
   const toggleCategory = (id: string) => {
+    if (detailId === id) {
+      setDetailId(null);
+      setActiveId(null);
+      return;
+    }
+
     setActiveId(id);
     setDetailId(id);
   };
@@ -223,8 +229,7 @@ export default function Home() {
             href="#model"
             key={category.id}
             onClick={() => {
-              setActiveId(category.id);
-              setDetailId(category.id);
+              toggleCategory(category.id);
               setMenuOpen(false);
             }}
           >
@@ -388,10 +393,7 @@ export default function Home() {
                 type="button"
                 aria-label={`${category.id}: ${category.name}`}
                 aria-pressed={category.id === activeId}
-                onClick={() => {
-                  setActiveId(category.id);
-                  setDetailId(category.id);
-                }}
+                onClick={() => toggleCategory(category.id)}
               >
                 {category.id}
               </button>
