@@ -383,20 +383,14 @@ a:focus-visible {
   transition: opacity 260ms ease;
 }
 
-.entry-sequence.has-announcement .tour-marquee {
-  animation: tour-promo-cycle 4s linear infinite, tour-marquee-shake 1.1s steps(2, end) infinite;
-}
-
-.entry-sequence.has-announcement .tour-badge-left {
-  animation: tour-badge-cycle 4s linear infinite, tour-badge-bounce 1.2s ease-in-out infinite alternate;
-}
-
-.entry-sequence.has-announcement .tour-badge-right {
-  animation: tour-badge-cycle 4s linear infinite, tour-badge-bounce 1s 0.25s ease-in-out infinite alternate-reverse;
-}
-
+.entry-sequence.has-announcement .tour-marquee,
 .entry-sequence.has-announcement .tour-enter {
-  animation: tour-promo-cycle 4s linear infinite, tour-enter-pulse 0.8s ease-in-out infinite alternate;
+  opacity: 1;
+}
+
+.entry-sequence.has-announcement .tour-badge {
+  opacity: 1;
+  scale: 1;
 }
 
 @keyframes tour-camera {
@@ -531,37 +525,6 @@ a:focus-visible {
   100% {
     opacity: 0;
     transform: translate(-8%, 150%) rotate(-9deg) scale(0.68);
-  }
-}
-
-@keyframes tour-promo-cycle {
-  0%,
-  48% {
-    opacity: 0;
-  }
-  54%,
-  97% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes tour-badge-cycle {
-  0%,
-  48% {
-    opacity: 0;
-    scale: 0.55;
-  }
-  54%,
-  97% {
-    opacity: 1;
-    scale: 1;
-  }
-  100% {
-    opacity: 0;
-    scale: 0.55;
   }
 }
 
