@@ -82,6 +82,11 @@ const categories: Category[] = [
   },
 ];
 
+const utilityCategories = [
+  { id: "07", name: "Legal" },
+  { id: "08", name: "Contact" },
+];
+
 export default function Home() {
   const [entryStage, setEntryStage] = useState<0 | 1 | 2>(0);
   const hasEntered = entryStage === 2;
@@ -185,8 +190,8 @@ export default function Home() {
     >
       <header className="masthead">
         <a className="wordmark" href="#model" aria-label="Yoshi und Moshi – zum Ausstellungsmodell">
-          <span className="wordmark-main">YOSHI<span>+</span>MOSHI</span>
           <span className="wordmark-subtitle">Become a Legend</span>
+          <span className="wordmark-main">YOSHI<span>+</span>MOSHI</span>
         </a>
         <div className="exhibition-title">
           <span>Exhibition Plan</span>
@@ -430,7 +435,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="closeup-grid" aria-label="Close-ups of the six subcategories">
+        <section className="closeup-grid" aria-label="Exhibition categories and information">
           {categories.map((category, index) => {
             const isActive = category.id === activeId;
             return (
@@ -475,6 +480,18 @@ export default function Home() {
               </figure>
             );
           })}
+          {utilityCategories.map((category) => (
+            <button
+              className="closeup-card utility-card"
+              key={category.id}
+              type="button"
+              aria-label={`${category.id}: ${category.name}`}
+            >
+              <span>{category.id}</span>
+              <strong>{category.name}</strong>
+              <small>Information</small>
+            </button>
+          ))}
         </section>
         </div>
       </section>
