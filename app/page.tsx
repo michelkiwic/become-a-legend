@@ -289,6 +289,8 @@ export default function Home() {
             draggable={false}
           />
 
+          <span className="funded-button" aria-label="Fully funded">Fully funded!</span>
+
           <svg
             className="hotspot-map"
             viewBox="0 0 100 100"

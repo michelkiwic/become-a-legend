@@ -1007,6 +1007,28 @@ a:focus-visible {
   transform: none;
 }
 
+.funded-button {
+  position: absolute;
+  z-index: 4;
+  top: 4.5%;
+  left: 3.5%;
+  display: inline-block;
+  padding: 0.62em 0.78em 0.55em;
+  border: 3px solid #0a0a0a;
+  background: var(--rebel-pink);
+  color: #fff7dc;
+  box-shadow: 5px 6px 0 #0a0a0a;
+  font-size: clamp(0.62rem, 1.05vw, 1.05rem);
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-shadow: 1px 1px 0 rgba(10, 10, 10, 0.3);
+  text-transform: uppercase;
+  transform: rotate(-4deg);
+  pointer-events: none;
+  user-select: none;
+}
+
 .hotspot-map {
   position: absolute;
   inset: 0;
