@@ -190,8 +190,8 @@ export default function Home() {
     >
       <header className="masthead">
         <a className="wordmark" href="#model" aria-label="Yoshi und Moshi – zum Ausstellungsmodell">
-          <span className="wordmark-subtitle">Become a Legend</span>
           <span className="wordmark-main">YOSHI<span>+</span>MOSHI</span>
+          <span className="wordmark-subtitle">Become a Legend</span>
         </a>
         <div className="exhibition-title">
           <span>Exhibition Plan</span>
