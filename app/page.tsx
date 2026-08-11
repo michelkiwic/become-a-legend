@@ -237,16 +237,6 @@ export default function Home() {
             <strong>{category.name}</strong>
           </a>
         ))}
-        {utilityCategories.map((category) => (
-          <a
-            href={`#${category.name.toLowerCase()}`}
-            key={category.id}
-            onClick={() => setMenuOpen(false)}
-          >
-            <span>{category.id}</span>
-            <strong>{category.name}</strong>
-          </a>
-        ))}
         <button
           type="button"
           onClick={() => {
@@ -258,6 +248,16 @@ export default function Home() {
         >
           Replay intro
         </button>
+        {utilityCategories.map((category) => (
+          <a
+            href={`#${category.name.toLowerCase()}`}
+            key={category.id}
+            onClick={() => setMenuOpen(false)}
+          >
+            <span>{category.id}</span>
+            <strong>{category.name}</strong>
+          </a>
+        ))}
       </nav>
 
       <section className="model-section" id="model" aria-label="Interactive exhibition model">
