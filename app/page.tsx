@@ -177,7 +177,7 @@ export default function Home() {
           />
           <span className="tour-shade" aria-hidden="true" />
           <span className="tour-marquee tour-marquee-top" aria-hidden="true">
-            HONK! HONK! &nbsp; THE LEGENDS ARE ON THE MOVE &nbsp; HONK! HONK! &nbsp; THE LEGENDS ARE ON THE MOVE
+            HONK! HONK! — &nbsp; THE LEGENDS ARE ON THE MOVE &nbsp; HONK! HONK! — &nbsp; THE LEGENDS ARE ON THE MOVE
           </span>
           <span className="tour-headline">
             <strong>Yoshi + Moshi</strong>
