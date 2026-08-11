@@ -197,14 +197,32 @@ export default function Home() {
       inert={!hasEntered}
     >
       <header className="masthead">
-        <a className="wordmark" href="#model" aria-label="Yoshi und Moshi – zum Ausstellungsmodell">
+        <a
+          className="wordmark"
+          href="#model"
+          aria-label="Yoshi und Moshi – zum Ausstellungsmodell"
+          onClick={() => {
+            setActiveId(null);
+            setDetailId(null);
+            setMenuOpen(false);
+          }}
+        >
           <span className="wordmark-main">YOSHI<span>+</span>MOSHI</span>
           <span className="wordmark-subtitle">Become a Legend</span>
         </a>
-        <div className="exhibition-title">
+        <button
+          className="exhibition-title"
+          type="button"
+          onClick={() => {
+            setActiveId(null);
+            setDetailId(null);
+            setMenuOpen(false);
+            window.location.hash = "model";
+          }}
+        >
           <span>Exhibition Plan</span>
           <span>Move or tab to explore</span>
-        </div>
+        </button>
         <button
           className={`menu-toggle${menuOpen ? " is-open" : ""}`}
           type="button"
